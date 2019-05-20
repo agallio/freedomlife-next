@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Cookies from 'js-cookie';
+import { auth } from '../utils/auth';
 import { ContainerBible, BoldText, LightText } from '../components/StyledBase';
 import BibleLayout from '../components/BibleLayout';
 import Loading from '../components/Loading';
 
-import { fetchChapter, fetchChapterExclude, fetchTodayGuide } from '../store';
+import {
+  fetchCurrentUser,
+  fetchChapter,
+  fetchChapterExclude,
+  fetchTodayGuide
+} from '../store';
 
 class Bible extends Component {
+  static async getInitialProps(ctx) {
+    const loggedIn = auth(ctx);
+
+    return { loggedIn };
+  }
+
   state = {
     loading: true,
     passage: 'pl-1',
@@ -15,7 +28,16 @@ class Bible extends Component {
     highlightedData: []
   };
 
+  componentWillMount = () => {
+    this.props.fetchCurrentUser();
+  };
+
   componentDidMount = () => {
+    if (this.props.status === 401) {
+      Cookies.remove('loggedIn');
+      window.location.reload();
+    }
+
     this.props.fetchTodayGuide().then(() => {
       const { guideToday } = this.props;
       const { pl, pb1, pb2 } = guideToday;
@@ -286,6 +308,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchCurrentUser: () => dispatch(fetchCurrentUser()),
     fetchTodayGuide: () => dispatch(fetchTodayGuide()),
     fetchChapter: (ver, book, chap) => dispatch(fetchChapter(ver, book, chap)),
     fetchChapterExclude: (ver, book, chap, min, max) =>

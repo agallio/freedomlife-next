@@ -55,7 +55,7 @@ class Login extends React.Component {
                   variant="extended"
                   color="secondary"
                   component="a"
-                  href={`http://localhost:4000/api/auth/google`}
+                  href={`http://api-freedomlife.herokuapp.com/api/auth/google`}
                   onClick={this.handleLogin}
                 >
                   <i className="fab fa-google" style={{ marginRight: 10 }} />

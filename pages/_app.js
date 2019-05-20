@@ -62,12 +62,11 @@ class MyApp extends App {
     const { Component, pageProps, store } = this.props;
     const { path } = this.state;
     const locSplit = path.split('/');
-    console.log(this.props.pathname);
 
     return (
       <Container>
         <Head>
-          <title>My page</title>
+          <title>FreedomLife</title>
           <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
