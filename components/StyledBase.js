@@ -30,13 +30,13 @@ export const ContainerFluid = styled.div`
 
 export const ContainerBible = styled.div`
   padding: 65px 0 10px 0;
-  max-width: 360px;
+  max-width: 425px;
   margin: 0 auto;
 `;
 
 export const HeaderTitle = styled.h2`
   font-family: 'SF Text';
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 32px;
   line-spacing: 36;
   color: white;
@@ -46,7 +46,7 @@ export const HeaderTitle = styled.h2`
 
 export const HeaderSubtitle = styled.p`
   font-family: 'SF Text';
-  font-weight: 200;
+  font-weight: 200 !important;
   font-size: 16;
   line-spacing: 18;
   color: white;
@@ -81,7 +81,7 @@ export const StyledBottomNavAction = styled(BottomNavigationAction)`
 // Button
 export const StyledFab = styled(Fab)`
   font-family: 'SF Text';
-  font-weight: 700;
+  font-weight: 700 !important;
   padding: ${props =>
     props.variant === 'extended' &&
     props.size === 'small' &&

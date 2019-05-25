@@ -102,28 +102,29 @@ class MyApp extends App {
                     <JumboHeaderOverlay />
                     <Component pageContext={this.pageContext} {...pageProps} />
 
-                    {pageProps.loggedIn !== undefined && pageProps.loggedIn && (
-                      <StyledBottomNav
-                        value={`/${locSplit[1]}`}
-                        onChange={this.navOnChange}
-                      >
-                        <StyledBottomNavAction
-                          label="Panduan"
-                          value="/guide"
-                          icon={<BookIcon />}
-                        />
-                        <StyledBottomNavAction
-                          label="Beranda"
-                          value="/"
-                          icon={<HomeIcon />}
-                        />
-                        <StyledBottomNavAction
-                          label="Akun"
-                          value="/account"
-                          icon={<PersonIcon />}
-                        />
-                      </StyledBottomNav>
-                    )}
+                    {this.props.pathname !== '/confirm' &&
+                      this.props.pathname !== '/login' && (
+                        <StyledBottomNav
+                          value={`/${locSplit[1]}`}
+                          onChange={this.navOnChange}
+                        >
+                          <StyledBottomNavAction
+                            label="Beranda"
+                            value="/"
+                            icon={<HomeIcon />}
+                          />
+                          <StyledBottomNavAction
+                            label="Panduan"
+                            value="/guide"
+                            icon={<BookIcon />}
+                          />
+                          {/* <StyledBottomNavAction
+                            label="Akun"
+                            value="/account"
+                            icon={<PersonIcon />}
+                          /> */}
+                        </StyledBottomNav>
+                      )}
                   </JumboHeader>
                 )}
               </Fade>

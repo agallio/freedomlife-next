@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Router from 'next/router';
 import { connect } from 'react-redux';
 import Cookies from 'js-cookie';
 import { auth } from '../utils/auth';
@@ -10,17 +11,25 @@ import {
 import { GuidePassageBoxFAB } from '../components/StyledHome';
 import Fade from '@material-ui/core/Fade';
 import Grid from '@material-ui/core/Grid';
-import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { fetchCurrentUser } from '../store';
 
 class Account extends Component {
-  state = {
-    loading: true
+  static async getInitialProps(ctx) {
+    const loggedIn = auth(ctx);
+
+    return { loggedIn };
+  }
+
+  componentWillMount = () => {
+    this.props.fetchCurrentUser();
   };
 
   componentDidMount = () => {
-    this.props.fetchCurrentUser().then(() => this.setState({ loading: false }));
+    if (this.props.status === 401) {
+      Cookies.remove('loggedIn');
+      window.location.reload();
+    }
   };
 
   handleLogout = () => {
@@ -33,7 +42,6 @@ class Account extends Component {
 
     return (
       <div>
-        {this.state.loading && <LinearProgress color="secondary" />}
         <Fade in>
           <Container>
             <Grid
@@ -70,28 +78,25 @@ class Account extends Component {
               </Grid>
             </Grid>
 
-            {/* <div style={{ marginTop: 40 }}>
-              {currentUser.photo !== undefined ? (
-                <GuidePassageBoxFAB
-                  size="medium"
-                  variant="extended"
-                  color="secondary"
-                  onClick={this.handleLogout}
-                >
-                  Keluar
-                </GuidePassageBoxFAB>
-              ) : (
-                <GuidePassageBoxFAB
-                  size="medium"
-                  variant="extended"
-                  color="secondary"
-                  component="a"
-                  href=""
-                >
-                  Masuk
-                </GuidePassageBoxFAB>
-              )}
-            </div> */}
+            <div style={{ marginTop: 40 }}>
+              <GuidePassageBoxFAB
+                size="medium"
+                variant="extended"
+                color="primary"
+                onClick={() => Router.push('/bible')}
+              >
+                Kembali Baca
+              </GuidePassageBoxFAB>
+              <GuidePassageBoxFAB
+                size="medium"
+                variant="extended"
+                color="secondary"
+                style={{ marginTop: 20 }}
+                onClick={this.handleLogout}
+              >
+                Keluar
+              </GuidePassageBoxFAB>
+            </div>
           </Container>
         </Fade>
       </div>

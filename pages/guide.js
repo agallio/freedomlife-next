@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Cookies from 'js-cookie';
-import { auth } from '../utils/auth';
 import {
   Container,
   ContainerFluid,
@@ -23,29 +21,14 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import moment from 'moment';
 import 'moment/locale/id';
 
-import { fetchCurrentUser, fetchGuideByMonth } from '../store';
+import { fetchGuideByMonth } from '../store';
 
 class Guide extends Component {
-  static async getInitialProps(ctx) {
-    const loggedIn = auth(ctx);
-
-    return { loggedIn };
-  }
-
   state = {
     loading: true
   };
 
-  componentWillMount = () => {
-    this.props.fetchCurrentUser();
-  };
-
   componentDidMount = () => {
-    if (this.props.status === 401) {
-      Cookies.remove('loggedIn');
-      window.location.reload();
-    }
-
     this.props
       .fetchGuideByMonth(moment().format('MM'), moment().format('YYYY'))
       .then(() => this.setState({ loading: false }));
@@ -54,11 +37,10 @@ class Guide extends Component {
   render() {
     const { guideByMonth } = this.props;
 
-    // console.log(guideByMonth);
-
     return (
       <Fade in>
         <div>
+          {this.state.loading && <LinearProgress color="secondary" />}
           <Container mypaddingbottom="30px">
             <HeaderTitle marginTop="70px">
               Panduan Baca
@@ -91,21 +73,35 @@ class Guide extends Component {
                       spacing={16}
                     >
                       <Grid item sm={4} md={4}>
-                        <GuideBox>
-                          <GuideBoxDayText>{item.day}</GuideBoxDayText>
-                          <GuideBoxDateText>
+                        <GuideBox
+                          today={moment().format('DD-MM-YYYY') === item.date}
+                        >
+                          <GuideBoxDayText
+                            today={moment().format('DD-MM-YYYY') === item.date}
+                          >
+                            {moment(item.date, 'DD-MM-YYYY').format('dddd')}
+                          </GuideBoxDayText>
+                          <GuideBoxDateText
+                            today={moment().format('DD-MM-YYYY') === item.date}
+                          >
                             {item.date.split('-')[0]}
                           </GuideBoxDateText>
                         </GuideBox>
                       </Grid>
                       <Grid item sm={8} md={8}>
-                        <GuideBoxPassageText>
+                        <GuideBoxPassageText
+                          today={moment().format('DD-MM-YYYY') === item.date}
+                        >
                           {item.pl_name}
                         </GuideBoxPassageText>
-                        <GuideBoxPassageText>
+                        <GuideBoxPassageText
+                          today={moment().format('DD-MM-YYYY') === item.date}
+                        >
                           {item.pb1_name}
                         </GuideBoxPassageText>
-                        <GuideBoxPassageText>
+                        <GuideBoxPassageText
+                          today={moment().format('DD-MM-YYYY') === item.date}
+                        >
                           {item.pb2_name}
                         </GuideBoxPassageText>
                       </Grid>
@@ -127,7 +123,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCurrentUser: () => dispatch(fetchCurrentUser()),
     fetchGuideByMonth: (month, year) => dispatch(fetchGuideByMonth(month, year))
   };
 };
