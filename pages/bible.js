@@ -59,20 +59,20 @@ class Bible extends Component {
       // PL
       plDashSplit = plSpaceSplit[1].split('-');
       if (plDashSplit.length > 1) {
-        if (plDashSplit.length === 3) {
-          let list = [];
-          for (i = plDashSplit[0]; i <= plDashSplit[1]; i++) {
-            list.push(i);
-            list.map((item, index) =>
-              this.props.fetchChapter('tb', plSpaceSplit[0], item).then(() => {
-                currState.push({
-                  value: `pl-${index + 1}`,
-                  data: this.props.chapters
-                });
-                this.setState({ currState });
-              })
-            );
-          }
+        let list = [];
+        for (i = Number(plDashSplit[0]); i <= plDashSplit[1]; i++) {
+          list.push(i);
+        }
+        if (list.length === 3) {
+          list.map((item, index) =>
+            this.props.fetchChapter('tb', plSpaceSplit[0], item).then(() => {
+              currState.push({
+                value: `pl-${index + 1}`,
+                data: this.props.chapters
+              });
+              this.setState({ currState });
+            })
+          );
         } else {
           plDashSplit.map((item, index) =>
             this.props.fetchChapter('tb', plSpaceSplit[0], item).then(() => {
