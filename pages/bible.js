@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cookies from 'js-cookie';
 import { auth } from '../utils/auth';
-import { ContainerBible, BoldText, LightText } from '../components/StyledBase';
+import {
+  ContainerBible,
+  BoldText,
+  RegularText
+} from '../components/StyledBase';
 import BibleLayout from '../components/BibleLayout';
 import Loading from '../components/Loading';
 import { removeArrayItem, removeArrayObject } from '../utils/array';
@@ -384,7 +388,7 @@ class Bible extends Component {
                   );
                 } else {
                   return (
-                    <LightText
+                    <RegularText
                       key={index}
                       myfontsize="16px"
                       mycolor="white"
@@ -421,7 +425,7 @@ class Bible extends Component {
                         {data.verse}
                       </sup>
                       {data.content}
-                    </LightText>
+                    </RegularText>
                   );
                 }
               })
