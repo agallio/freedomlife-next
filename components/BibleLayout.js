@@ -110,8 +110,12 @@ class BibleLayout extends Component {
             >
               {passage === 'pl-1'
                 ? plSpaceSplit.length === 3
-                  ? `${plSpaceSplit[0]} ${plSpaceSplit[1]} ${list[0]}`
-                  : `${plSpaceSplit[0]} ${list[0]}`
+                  ? `${plSpaceSplit[0]} ${plSpaceSplit[1]} ${
+                      list.length === 0 ? plSpaceSplit[2] : list[0]
+                    }`
+                  : `${plSpaceSplit[0]} ${
+                      list.length === 0 ? plSpaceSplit[1] : list[0]
+                    }`
                 : passage === 'pl-2'
                 ? plSpaceSplit.length === 3
                   ? `${plSpaceSplit[0]} ${plSpaceSplit[1]} ${list[1]}`
