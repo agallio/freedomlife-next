@@ -35,7 +35,7 @@ export const ContainerBible = styled.div`
 `;
 
 export const HeaderTitle = styled.h2`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   font-size: 32px;
   line-spacing: 36;
@@ -45,7 +45,7 @@ export const HeaderTitle = styled.h2`
 `;
 
 export const HeaderSubtitle = styled.p`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 200 !important;
   font-size: 16;
   line-spacing: 18;
@@ -80,7 +80,7 @@ export const StyledBottomNavAction = styled(BottomNavigationAction)`
 
 // Button
 export const StyledFab = styled(Fab)`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   padding: ${props =>
     props.variant === 'extended' &&
@@ -90,7 +90,7 @@ export const StyledFab = styled(Fab)`
 
 // Typography
 export const BoldText = styled(Typography)`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   font-size: ${props => props.myfontsize} !important;
   color: ${props => (props.myprimary && '#673ab7') || props.mycolor} !important;
@@ -99,7 +99,7 @@ export const BoldText = styled(Typography)`
 `;
 
 export const RegularText = styled(Typography)`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 400 !important;
   font-size: ${props => props.myfontsize} !important;
   color: ${props => (props.myprimary && '#673ab7') || props.mycolor} !important;
@@ -108,7 +108,7 @@ export const RegularText = styled(Typography)`
 `;
 
 export const LightText = styled(Typography)`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 200 !important;
   font-size: ${props => props.myfontsize} !important;
   color: ${props => (props.myprimary && '#673ab7') || props.mycolor} !important;
@@ -117,7 +117,7 @@ export const LightText = styled(Typography)`
 `;
 
 export const LightItallicText = styled(Typography)`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 200 !important;
   font-style: italic;
   font-size: ${props => props.myfontsize} !important;

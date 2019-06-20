@@ -26,7 +26,7 @@ export const GuidePassageBox = styled.div`
 `;
 
 export const GuidePassageBoxText = styled.h5`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   font-size: 14pt;
   color: ${primary};
@@ -34,7 +34,7 @@ export const GuidePassageBoxText = styled.h5`
 `;
 
 export const GuidePassageBoxFAB = styled(Fab)`
-  font-family: 'SF Text' !important;
+  font-family: 'Rubik' !important;
   font-weight: 400 !important;
   width: 100% !important;
   margin: ${props => props.mymargin};

@@ -11,7 +11,7 @@ export const GuideBox = styled.div`
 `;
 
 export const GuideBoxDayText = styled.h5`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   font-size: 14pt;
   color: ${props => (props.today ? 'white' : primary)};
@@ -19,7 +19,7 @@ export const GuideBoxDayText = styled.h5`
 `;
 
 export const GuideBoxDateText = styled.h5`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 700 !important;
   font-size: 30px;
   color: ${props => (props.today ? 'white' : primary)};
@@ -27,7 +27,7 @@ export const GuideBoxDateText = styled.h5`
 `;
 
 export const GuideBoxPassageText = styled.p`
-  font-family: 'SF Text';
+  font-family: 'Rubik';
   font-weight: 400 !important;
   font-size: 16px;
   color: ${props => (props.today ? primary : grey)};

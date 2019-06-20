@@ -53,6 +53,10 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

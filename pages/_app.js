@@ -12,7 +12,7 @@ import nextCookie from 'next-cookies';
 import Fade from '@material-ui/core/Fade';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import BookIcon from '@material-ui/icons/BookRounded';
-import PersonIcon from '@material-ui/icons/PersonRounded';
+// import PersonIcon from '@material-ui/icons/PersonRounded';
 
 import {
   StyledBottomNav,
@@ -21,7 +21,6 @@ import {
 import { JumboHeader, JumboHeaderOverlay } from '../components/StyledHome';
 import { initStore } from '../store';
 import getPageContext from '../src/getPageContext';
-import '../styles/fonts.scss';
 
 class MyApp extends App {
   constructor(props) {

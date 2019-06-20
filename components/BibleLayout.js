@@ -102,7 +102,7 @@ class BibleLayout extends Component {
             </IconButton>
             <Button
               style={{
-                fontFamily: 'SF Text',
+                fontFamily: 'Rubik',
                 fontWeight: 700,
                 width: 180,
                 color: 'white'
