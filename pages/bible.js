@@ -205,7 +205,7 @@ class Bible extends Component {
 
     whatPassage.forEach(item => {
       if (this.state.passage === 'pl-1' && item.includes(this.state.passage)) {
-        if (item.includes('pl-2')) {
+        if (whatPassage.includes('pl-2')) {
           this.setState({ passage: 'pl-2' });
         } else {
           this.setState({ passage: 'pb1' });
