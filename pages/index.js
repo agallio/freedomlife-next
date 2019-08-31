@@ -2,10 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Link from 'next/link';
 import Router from 'next/router';
-import Cookies from 'js-cookie';
-import { auth } from '../utils/auth';
 import {
   Container,
   HeaderTitle,
@@ -25,14 +22,18 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import moment from 'moment';
 import 'moment/locale/id';
 
-import { fetchCurrentUser, fetchTodayGuide } from '../store';
+import { fetchTodayGuide } from '../store';
 
 class Index extends Component {
   state = {
-    loading: true
+    loading: true,
+    maintenance: true
   };
 
   componentDidMount = () => {
+    if (this.state.maintenance) {
+      Router.push('/maintenance');
+    }
     this.props.fetchTodayGuide().then(() => this.setState({ loading: false }));
   };
 

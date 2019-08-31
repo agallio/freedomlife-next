@@ -102,7 +102,8 @@ class MyApp extends App {
                     <Component pageContext={this.pageContext} {...pageProps} />
 
                     {this.props.pathname !== '/confirm' &&
-                      this.props.pathname !== '/login' && (
+                      this.props.pathname !== '/login' &&
+                      this.props.pathname !== '/maintenance' && (
                         <StyledBottomNav
                           value={`/${locSplit[1]}`}
                           onChange={this.navOnChange}
