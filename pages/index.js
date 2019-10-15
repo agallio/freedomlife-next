@@ -27,7 +27,7 @@ import { fetchTodayGuide } from '../store';
 class Index extends Component {
   state = {
     loading: true,
-    maintenance: true
+    maintenance: false
   };
 
   componentDidMount = () => {
