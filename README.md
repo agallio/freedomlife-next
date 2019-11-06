@@ -1,10 +1,8 @@
-# FreedomLife
+# FreedomLife Next
 
-FreedomLife bible guide app.
+Yearly bible reading guide app. (Next version)
 
-For the backend or the api, visit this [repository](https://github.com/agallio/freedomlife-api)
-
-For the React.js frontend, visit this [repository](https://github.com/agallio/freedomlife)
+For the stable version, visit this [repository](https://github.com/agallio/freedomlife)
 
 ## Requirements
 
