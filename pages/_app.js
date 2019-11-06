@@ -103,7 +103,8 @@ class MyApp extends App {
 
                     {this.props.pathname !== '/confirm' &&
                       this.props.pathname !== '/login' &&
-                      this.props.pathname !== '/maintenance' && (
+                      this.props.pathname !== '/maintenance' &&
+                      this.props.pathname !== '/new' && (
                         <StyledBottomNav
                           value={`/${locSplit[1]}`}
                           onChange={this.navOnChange}

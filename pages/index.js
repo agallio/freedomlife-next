@@ -27,14 +27,16 @@ import { fetchTodayGuide } from '../store';
 class Index extends Component {
   state = {
     loading: true,
-    maintenance: false
+    maintenance: false,
+    new: true
   };
 
   componentDidMount = () => {
     if (this.state.maintenance) {
       Router.push('/maintenance');
     }
-    this.props.fetchTodayGuide().then(() => this.setState({ loading: false }));
+    if (this.state.new) Router.push('/new');
+    // this.props.fetchTodayGuide().then(() => this.setState({ loading: false }));
   };
 
   toBible = () => Router.push('/bible');
